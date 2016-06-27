@@ -50,3 +50,50 @@ Run the code
 For more information on setting up Cordova see [the documentation](http://cordova.apache.org/docs/en/4.0.0/guide_cli_index.md.html#The%20Command-Line%20Interface)
 
 For more info on plugins see the [Plugin Development Guide](http://cordova.apache.org/docs/en/4.0.0/guide_hybrid_plugins_index.md.html#Plugin%20Development%20Guide)
+
+##My comments
+
+Cordova Android Plugins are based on Android Webview.
+
+Plugin consists of:
+
+* Java class that extends CordovaPlugin class, and overrides execute method
+* Javascript interface with cordova.exec method. It sends request to Webview, calling 
+action (greet) method on the service (Hello.java) class
+
+    exec(<successFunction>, <failFunction>, <service>, <action>, [<args>]);
+
+* plugin.xml with injected feature element to match service element in javascript
+
+```xml
+<feature name="<service_name>">
+    <param name="android-package" value="<full_name_including_namespace>" />
+</feature>
+```
+
+##Working in Threads 
+###Access to UI:
+
+use the Activity's runOnUiThread method
+
+```java
+cordova.getActivity().runOnUiThread(new Runnable() {
+	public void run() {
+	    \\...
+	        callbackContext.success(); // Thread-safe.
+	}
+});
+```
+
+###No UI Access:
+
+use ExecutorService obtained with cordova.getThreadPool()
+
+```java
+cordova.getThreadPool().execute(new Runnable() {
+	public void run() {
+	    \\...
+	    callbackContext.success(); // Thread-safe.
+}
+});
+```
