@@ -1,0 +1,79 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {
+            "res/xml/config.xml": {
+                "parents": {
+                    "/*": [
+                        {
+                            "xml": "<feature name=\"Whitelist\"><param name=\"android-package\" value=\"org.apache.cordova.whitelist.WhitelistPlugin\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Hello\"><param name=\"android-package\" value=\"com.example.plugin.Hello\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"NetworkStatus\"><param name=\"android-package\" value=\"org.apache.cordova.networkinformation.NetworkManager\" /></feature>",
+                            "count": 1
+                        }
+                    ]
+                }
+            },
+            "AndroidManifest.xml": {
+                "parents": {
+                    "/*": [
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\" />",
+                            "count": 1
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "installed_plugins": {
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.example.helloapp"
+        },
+        "com.example.hello": {
+            "PACKAGE_NAME": "com.example.helloapp"
+        },
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "com.example.helloapp"
+        }
+    },
+    "dependent_plugins": {},
+    "modules": [
+        {
+            "file": "plugins/com.example.hello/www/hello.js",
+            "id": "com.example.hello.hello",
+            "clobbers": [
+                "hello"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-network-information/www/network.js",
+            "id": "cordova-plugin-network-information.network",
+            "clobbers": [
+                "navigator.connection",
+                "navigator.network.connection"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-network-information/www/Connection.js",
+            "id": "cordova-plugin-network-information.Connection",
+            "clobbers": [
+                "Connection"
+            ]
+        }
+    ],
+    "plugin_metadata": {
+        "cordova-plugin-whitelist": "1.2.2",
+        "com.example.hello": "0.7.0",
+        "cordova-plugin-network-information": "1.2.1"
+    }
+}
