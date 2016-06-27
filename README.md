@@ -61,7 +61,9 @@ Plugin consists of:
 * Javascript interface with cordova.exec method. It sends request to Webview, calling 
 action (greet) method on the service (Hello.java) class
 
-    exec(<successFunction>, <failFunction>, <service>, <action>, [<args>]);
+```js
+exec(<successFunction>, <failFunction>, <service>, <action>, [<args>]);
+```
 
 * plugin.xml with injected feature element to match service element in javascript
 
@@ -79,7 +81,7 @@ use the Activity's runOnUiThread method
 ```java
 cordova.getActivity().runOnUiThread(new Runnable() {
 	public void run() {
-	    \\...
+	    //...
 	        callbackContext.success(); // Thread-safe.
 	}
 });
@@ -92,8 +94,8 @@ use ExecutorService obtained with cordova.getThreadPool()
 ```java
 cordova.getThreadPool().execute(new Runnable() {
 	public void run() {
-	    \\...
+	    //...
 	    callbackContext.success(); // Thread-safe.
-}
+    }
 });
 ```
