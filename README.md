@@ -99,3 +99,15 @@ cordova.getThreadPool().execute(new Runnable() {
     }
 });
 ```
+
+##Useful Links
+###Oracle create cordova plugin tutorial
+https://blogs.oracle.com/mobile/entry/introduction_to_custom_cordova_plugin
+###Plugin Controller Example + How to create plugin (Finalization, Publishing)
+http://www.mat-d.com/site/tutorial-creating-a-cordova-phonegap-plugin-for-android-app/
+###Apache Cordova Official Tuts
+https://cordova.apache.org/docs/en/latest/guide/hybrid/plugins/index.html
+###Apache Cordova Official Android Tuts
+https://cordova.apache.org/docs/en/latest/guide/platforms/android/plugin.html
+###Android Activities
+http://www.tutorialspoint.com/android/android_acitivities.htm
